@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Jawaban;
 use App\Models\Room;
 use App\Models\SiswaDetail;
 use Illuminate\Http\Request;
@@ -32,5 +33,16 @@ class DaftarKelasSiswa extends Controller
         }else{
             abort(404);
         }
+    }
+    
+    public function jawabtugas(Request $request, $id)
+    {
+        $data = Jawaban::create(['isi_jawaban' => $request->data['isi_jawaban'], 'materi_id' => $id, 'siswa_id' => Auth::user()->id]);
+    }
+
+    public function edittugas(Request $request)
+    {
+        $data = Jawaban::find($request->data['id']);
+        $data->update($request->data);
     }
 }

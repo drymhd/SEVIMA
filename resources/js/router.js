@@ -23,6 +23,7 @@ import MateriGuru from './pages/Guru/Materi/Index.vue'
 
 import DaftarKelasSiswa from './pages/Siswa/daftarkelas/Index.vue'
 import MateriKelasSiswa from './pages/Siswa/Materi/Index.vue'
+import MateriTugasSiswa from './pages/Siswa/MateriTugas/Index.vue'
 // Routes
 const router = createRouter({
     hasbang: false,
@@ -70,6 +71,16 @@ const router = createRouter({
             path: '/daftarkelas-siswa',
             name: 'siswa.daftarkelas',
             component: DaftarKelasSiswa,
+        },
+        {
+            path: '/materi-siswa/:id',
+            name: 'siswa.materi',
+            component: MateriKelasSiswa,
+        },
+        {
+            path: '/materitugas-siswa/:id',
+            name: 'siswa.materitugas',
+            component: MateriTugasSiswa,
         },
 
         // Guru ROUTES

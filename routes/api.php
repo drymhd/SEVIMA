@@ -110,8 +110,12 @@ Route::prefix('v1')->group(function () {
         Route::prefix('daftarkelas')->group(function () {
             Route::post('index', [DaftarKelasSiswa::class, 'index']);
             Route::post('tambah/{id}', [DaftarKelasSiswa::class, 'tambah']);
-            Route::get('tugas/{id}', [DaftarKelasSiswa::class, 'gettugas']);
+            Route::get('jawabtugastugas/{id}', [DaftarKelasSiswa::class, 'jawabtugas']);
             Route::post('edit', [DaftarKelasSiswa::class, 'edit']);
+        });
+        Route::prefix('materi')->group(function () {
+            Route::post('jawabtugas/{id}', [DaftarKelasSiswa::class, 'jawabtugas']);
+            Route::post('edittugas', [DaftarKelasSiswa::class, 'edittugas']);
         });
     });
     Route::post('test', [UserController::class, 'test']);

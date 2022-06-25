@@ -21,6 +21,14 @@
             }
         },
         methods: {
+callback() {
+                // Callback Example
+                var app = this;
+                $('#myTable').on('click', '.masuk', function (e) {
+                    var id = $(this).data('id');
+                    app.$router.push({name: 'siswa.materi', params: {id: id}});
+                })
+            },
 
         },
         mounted() {

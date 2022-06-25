@@ -15,4 +15,10 @@ class Materi extends Model
     {
         return $this->hasOne(Tugas::class, 'id_materi', 'id');
     }
+
+    
+    public function jawaban()
+    {
+        return $this->hasMany(Jawaban::class, 'materi_id', 'id');
+    }
 }

@@ -15,6 +15,13 @@ class CreateJawabansTable extends Migration
     {
         Schema::create('jawabans', function (Blueprint $table) {
             $table->id();
+            $table->text('isi_jawaban');
+            $table->unsignedBigInteger('materi_id');
+            $table->foreign('materi_id')->references('id')->on('materis')->onDelete('cascade');
+            
+            $table->unsignedBigInteger('siswa_id');
+            $table->foreign('siswa_id')->references('id')->on('users')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

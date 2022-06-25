@@ -10,7 +10,7 @@ class MateriController extends Controller
 {
     public function index($id)
     {
-        $data = Materi::with('tugas')->find($id);
+        $data = Materi::with(['tugas', 'jawaban'])->find($id);
         return response()->json(['data' => $data]);
     }
 
