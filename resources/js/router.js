@@ -2,10 +2,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 // Pages
+import Redirect from './pages/Redirect/Index.vue'
 import Home from './pages/Home/Index.vue'
 import Register from './pages/Register'
 import Login from './pages/Login'
-import Dashboard from './pages/User/Home'
+import Dashboard from './pages/Siswa/Dashboard/Index.vue'
 
 // Routes
 const router = createRouter({
@@ -13,10 +14,18 @@ const router = createRouter({
     history: createWebHistory(),
     routes: [{
             path: '/',
+            name: 'redirect',
+            component: Redirect,
+            meta: {
+                auth: undefined
+            }
+        },
+        {
+            path: '/',
             name: 'home',
             component: Home,
             meta: {
-                auth: undefined
+                auth: false
             }
         },
         {
@@ -35,10 +44,10 @@ const router = createRouter({
                 auth: false
             }
         },
-        // USER ROUTES
+        // Siswa ROUTES
         {
-            path: '/dashboard',
-            name: 'dashboard',
+            path: '/dashboard-siswa',
+            name: 'siswa',
             component: Dashboard,
         },
     ]
