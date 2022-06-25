@@ -12,6 +12,7 @@ import KelasAdmin from './pages/Admin/Kelas/Index.vue'
 import MapelAdmin from './pages/Admin/Mapel/Index.vue'
 import SiswaAdmin from './pages/Admin/Siswa/Index.vue'
 import GuruAdmin from './pages/Admin/Guru/Index.vue'
+import KelasMapelAdmin from './pages/Admin/KelasMapel/Index.vue'
 
 // Routes
 const router = createRouter({
@@ -82,6 +83,11 @@ const router = createRouter({
             path: '/guru-admin',
             name: 'admin.guru',
             component: GuruAdmin,
+        },
+        {
+            path: '/kelasmapel-admin',
+            name: 'admin.kelasmapel',
+            component: KelasMapelAdmin,
         },
 
     ]

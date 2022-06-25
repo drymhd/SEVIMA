@@ -24544,6 +24544,119 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/pages/Admin/KelasMapel/Index.vue?vue&type=script&lang=js":
+/*!***********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/pages/Admin/KelasMapel/Index.vue?vue&type=script&lang=js ***!
+  \***********************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_defineProperty({
+  data: function data() {
+    return {
+      type: 'tambah',
+      show: false,
+      datakelas: [],
+      datamapel: [],
+      form: {
+        kelasmapel: []
+      }
+    };
+  },
+  methods: {},
+  mounted: function mounted() {
+    this.index();
+    this.loadtable();
+  }
+}, "methods", {
+  tambah: function tambah() {
+    var app = this;
+
+    if (app.type != 'tambah') {
+      app.$http.post('admin/kelasmapel/edit', {
+        data: app.form
+      }).then(function (res) {
+        toastr.success('sukses megedit data', 'sukses');
+        app.index();
+        app.show = false;
+        app.form = {};
+      })["catch"](function (err) {
+        toastr.error('gagal mengedit data', 'gagal');
+      });
+    } else app.$http.post('admin/kelasmapel/tambah', {
+      data: app.form
+    }).then(function (res) {
+      toastr.success('sukses menambah data', 'sukses');
+      app.index();
+      app.show = false;
+      app.form = {};
+    })["catch"](function (err) {
+      toastr.error('gagal menambah data', 'gagal');
+    });
+  },
+  index: function index() {
+    var app = this;
+    app.$http.get('admin/kelasmapel/index').then(function (res) {
+      app.datakelas = res.data.data;
+    })["catch"](function (err) {
+      Swal.fire('Error');
+    });
+    app.$http.get('admin/kelasmapel/indexmapel').then(function (res) {
+      app.datamapel = res.data.data;
+    })["catch"](function (err) {
+      Swal.fire('Error');
+    });
+  },
+  loadtable: function loadtable() {
+    var app = this;
+    $('table').on('click', '.hapus', function (e) {
+      var id = $(this).data('id');
+      app.hapus(id);
+    });
+    $('table').on('click', '.edit', function (e) {
+      var id = $(this).data('id');
+      app.edit(id);
+    });
+  },
+  edit: function edit(id) {
+    var app = this;
+    app.show = true;
+    app.type = 'edit';
+    app.$http.get('admin/kelasmapel/get/' + id).then(function (res) {
+      app.form = res.data.data;
+    })["catch"](function (err) {
+      toastr.error('sesuatu error terjadi', 'error');
+    });
+  },
+  klikmapel: function klikmapel(kelas_id, mapel_id) {
+    var app = this;
+    app.$http.get('admin/kelasmapel/klik/' + kelas_id + "/" + mapel_id).then(function (res) {
+      if (res.data) {
+        toastr.success('sukses menambah mapel', 'sukses');
+      } else {
+        toastr.error('sukses menghapus mapel', 'sukses');
+      }
+    });
+  },
+  hapus: function hapus(id) {
+    var app = this;
+    app.$http.get("admin/kelasmapel/hapus/" + id).then(function (res) {
+      toastr.success('sukses menghapus data', 'sukses');
+      app.index();
+    })["catch"](function (err) {
+      toastr.success('sukses menghapus data', 'sukses');
+    });
+  }
+}));
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/pages/Admin/Kelas/Index.vue?vue&type=script&lang=js":
 /*!******************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/pages/Admin/Kelas/Index.vue?vue&type=script&lang=js ***!
@@ -25225,7 +25338,7 @@ var _hoisted_3 = /*#__PURE__*/_withScopeId(function () {
     "class": "custom_heading-container"
   }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", {
     "class": ""
-  }, " Menu untuk E-Learning ")], -1
+  }, "Menu untuk E-Learning")], -1
   /* HOISTED */
   );
 });
@@ -25302,6 +25415,24 @@ var _hoisted_22 = /*#__PURE__*/_withScopeId(function () {
 
 var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Klik");
 
+var _hoisted_24 = {
+  "class": "card col-md-3"
+};
+var _hoisted_25 = {
+  "class": "box"
+};
+var _hoisted_26 = {
+  "class": "content"
+};
+
+var _hoisted_27 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, "Kelas Mapel", -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_28 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Klik");
+
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
 
@@ -25351,6 +25482,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_23];
+    }),
+    _: 1
+    /* STABLE */
+
+  }, 8
+  /* PROPS */
+  , ["to"])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_24, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_25, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_26, [_hoisted_27, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+    to: {
+      name: 'admin.kelasmapel'
+    }
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_28];
     }),
     _: 1
     /* STABLE */
@@ -25629,6 +25773,123 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }), 256
   /* UNKEYED_FRAGMENT */
   ))])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tbody", _hoisted_29, _hoisted_31))])]);
+}
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/pages/Admin/KelasMapel/Index.vue?vue&type=template&id=118d14ab":
+/*!***************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/pages/Admin/KelasMapel/Index.vue?vue&type=template&id=118d14ab ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+var _hoisted_1 = {
+  "class": "container"
+};
+var _hoisted_2 = {
+  key: 0,
+  "class": "card"
+};
+
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", {
+  "class": "card-header"
+}, "Tambah Kelas Mapel", -1
+/* HOISTED */
+);
+
+var _hoisted_4 = {
+  "class": "card-body"
+};
+var _hoisted_5 = {
+  autocomplete: "off"
+};
+var _hoisted_6 = {
+  "class": "form-check"
+};
+var _hoisted_7 = ["onChange", "checked", "value"];
+var _hoisted_8 = {
+  "class": "form-check-label",
+  "for": "flexCheckDefault"
+};
+var _hoisted_9 = {
+  "class": "table table-striped"
+};
+
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("thead", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+  scope: "col"
+}, "Nama Kelas"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+  scope: "col"
+}, "Aksi")])], -1
+/* HOISTED */
+);
+
+var _hoisted_11 = {
+  key: 0
+};
+var _hoisted_12 = {
+  style: {
+    "width": "70%"
+  }
+};
+var _hoisted_13 = ["innerHTML"];
+var _hoisted_14 = {
+  key: 1
+};
+
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", {
+  colspan: "2",
+  "class": "text-center"
+}, "Tidak ada data", -1
+/* HOISTED */
+);
+
+var _hoisted_16 = [_hoisted_15];
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("main", _hoisted_1, [$data.show ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", _hoisted_5, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.datamapel, function (data) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      "class": "form-check-input",
+      onChange: function onChange($event) {
+        return $options.klikmapel($data.form.id, data.id);
+      },
+      checked: $data.form.kelasmapel.find(function (e) {
+        return e.id == data.id;
+      }) == undefined ? false : true,
+      type: "checkbox",
+      value: data.id,
+      id: "flexCheckDefault"
+    }, null, 40
+    /* PROPS, HYDRATE_EVENTS */
+    , _hoisted_7), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(data.nama_mapel), 1
+    /* TEXT */
+    )]);
+  }), 256
+  /* UNKEYED_FRAGMENT */
+  ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    "class": "btn btn-md btn-block btn-danger",
+    onClick: _cache[0] || (_cache[0] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
+      $data.show = false;
+      $data.form = {
+        kelasmapel: []
+      };
+    }, ["prevent"]))
+  }, "tutup")])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_9, [_hoisted_10, $data.datakelas.length != 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tbody", _hoisted_11, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.datakelas, function (data) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(data.nama_kelas), 1
+    /* TEXT */
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", {
+      innerHTML: data.action
+    }, null, 8
+    /* PROPS */
+    , _hoisted_13)]);
+  }), 256
+  /* UNKEYED_FRAGMENT */
+  ))])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tbody", _hoisted_14, _hoisted_16))])]);
 }
 
 /***/ }),
@@ -26871,7 +27132,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm-bundler.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm-bundler.js");
 /* harmony import */ var _pages_Redirect_Index_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pages/Redirect/Index.vue */ "./resources/js/pages/Redirect/Index.vue");
 /* harmony import */ var _pages_Home_Index_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pages/Home/Index.vue */ "./resources/js/pages/Home/Index.vue");
 /* harmony import */ var _pages_Register__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/Register */ "./resources/js/pages/Register/index.vue");
@@ -26882,6 +27143,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_Admin_Mapel_Index_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./pages/Admin/Mapel/Index.vue */ "./resources/js/pages/Admin/Mapel/Index.vue");
 /* harmony import */ var _pages_Admin_Siswa_Index_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./pages/Admin/Siswa/Index.vue */ "./resources/js/pages/Admin/Siswa/Index.vue");
 /* harmony import */ var _pages_Admin_Guru_Index_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./pages/Admin/Guru/Index.vue */ "./resources/js/pages/Admin/Guru/Index.vue");
+/* harmony import */ var _pages_Admin_KelasMapel_Index_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./pages/Admin/KelasMapel/Index.vue */ "./resources/js/pages/Admin/KelasMapel/Index.vue");
 // import { VueRouter } from 'vue-router'
  // Pages
 
@@ -26894,11 +27156,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
  // Routes
 
-var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_10__.createRouter)({
+var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_11__.createRouter)({
   hasbang: false,
-  history: (0,vue_router__WEBPACK_IMPORTED_MODULE_10__.createWebHistory)(),
+  history: (0,vue_router__WEBPACK_IMPORTED_MODULE_11__.createWebHistory)(),
   routes: [{
     path: '/',
     name: 'redirect',
@@ -26953,6 +27216,10 @@ var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_10__.createRouter)({
     path: '/guru-admin',
     name: 'admin.guru',
     component: _pages_Admin_Guru_Index_vue__WEBPACK_IMPORTED_MODULE_9__["default"]
+  }, {
+    path: '/kelasmapel-admin',
+    name: 'admin.kelasmapel',
+    component: _pages_Admin_KelasMapel_Index_vue__WEBPACK_IMPORTED_MODULE_10__["default"]
   }]
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (app) {
@@ -32106,7 +32373,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800&display=swap);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.custom_heading-container[data-v-a69fed44] {\n  display: flex;\n  justify-content: center;\n}\n.custom_heading-container h3[data-v-a69fed44]{\n    color: black;\n    position: relative;\n}\n.custom_heading-container h3[data-v-a69fed44]:before {\n      content: \"\";\n      position: absolute;\n      bottom: -7px;\n      left: 50%;\n      width: 50px;\n      height: 7px;\n      transform: translateX(-50%);\n      background-color: rgb(169, 65, 8);\n      border-radius: 15px;\n}\nmain .card[data-v-a69fed44] {\n  position: relative;\n  min-width: 320px;\n  height: 200px;\n  margin-top: 20px;\n  box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2),\n    inset -5px -5px 15px rgba(255, 255, 255, 0.1),\n    5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1);\n  border-radius: 15px;\n  transition: 0.5s;\n}\nmain .card:nth-child(1) .box .content a[data-v-a69fed44] {\n  background: #2196f3;\n}\nmain .card:nth-child(2) .box .content a[data-v-a69fed44] {\n  background: #e91e63;\n}\nmain .card:nth-child(3) .box .content a[data-v-a69fed44] {\n  background: #23c186;\n}\nmain .card .box[data-v-a69fed44] {\n  position: absolute;\n  top: 20px;\n  left: 20px;\n  right: 20px;\n  bottom: 20px;\n  background: #2a2b2f;\n  border-radius: 15px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  overflow: hidden;\n  transition: 0.5s;\n}\nmain .card .box[data-v-a69fed44]:hover {\n  transform: translateY(-50px);\n}\nmain .card .box[data-v-a69fed44]:before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 50%;\n  height: 100%;\n  background: rgba(255, 255, 255, 0.03);\n}\nmain .card .box .content[data-v-a69fed44] {\n  padding: 20px;\n  text-align: center;\n}\nmain .card .box .content h2[data-v-a69fed44] {\n  position: absolute;\n  top: -10px;\n  right: 30px;\n  font-size: 8rem;\n  color: rgba(255, 255, 255, 0.1);\n}\nmain .card .box .content h3[data-v-a69fed44] {\n  font-size: 1.8rem;\n  color: #fff;\n  z-index: 1;\n  transition: 0.5s;\n  margin-bottom: 15px;\n}\nmain .card .box .content p[data-v-a69fed44] {\n  font-size: 1rem;\n  font-weight: 300;\n  color: rgba(255, 255, 255, 0.9);\n  z-index: 1;\n  transition: 0.5s;\n}\nmain .card .box .content a[data-v-a69fed44] {\n  position: relative;\n  display: inline-block;\n  padding: 8px 20px;\n  background: black;\n  border-radius: 5px;\n  text-decoration: none;\n  color: white;\n  margin-top: 20px;\n  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);\n  transition: 0.5s;\n}\nmain .card .box .content a[data-v-a69fed44]:hover {\n  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);\n  background: #fff;\n  color: #000;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.custom_heading-container[data-v-a69fed44] {\n  display: flex;\n  justify-content: center;\n}\n.custom_heading-container h3[data-v-a69fed44] {\n  color: black;\n  position: relative;\n}\n.custom_heading-container h3[data-v-a69fed44]:before {\n  content: \"\";\n  position: absolute;\n  bottom: -7px;\n  left: 50%;\n  width: 50px;\n  height: 7px;\n  transform: translateX(-50%);\n  background-color: rgb(169, 65, 8);\n  border-radius: 15px;\n}\nmain .card[data-v-a69fed44] {\n  position: relative;\n  min-width: 320px;\n  height: 200px;\n  margin-top: 20px;\n  box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2),\n    inset -5px -5px 15px rgba(255, 255, 255, 0.1),\n    5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1);\n  border-radius: 15px;\n  transition: 0.5s;\n}\nmain .card:nth-child(1) .box .content a[data-v-a69fed44] {\n  background: #2196f3;\n}\nmain .card:nth-child(2) .box .content a[data-v-a69fed44] {\n  background: #e91e63;\n}\nmain .card:nth-child(3) .box .content a[data-v-a69fed44] {\n  background: #23c186;\n}\nmain .card .box[data-v-a69fed44] {\n  position: absolute;\n  top: 20px;\n  left: 20px;\n  right: 20px;\n  bottom: 20px;\n  background: #2a2b2f;\n  border-radius: 15px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  overflow: hidden;\n  transition: 0.5s;\n}\nmain .card .box[data-v-a69fed44]:hover {\n  transform: translateY(-50px);\n}\nmain .card .box[data-v-a69fed44]:before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 50%;\n  height: 100%;\n  background: rgba(255, 255, 255, 0.03);\n}\nmain .card .box .content[data-v-a69fed44] {\n  padding: 20px;\n  text-align: center;\n}\nmain .card .box .content h2[data-v-a69fed44] {\n  position: absolute;\n  top: -10px;\n  right: 30px;\n  font-size: 8rem;\n  color: rgba(255, 255, 255, 0.1);\n}\nmain .card .box .content h3[data-v-a69fed44] {\n  font-size: 1.8rem;\n  color: #fff;\n  z-index: 1;\n  transition: 0.5s;\n  margin-bottom: 15px;\n}\nmain .card .box .content p[data-v-a69fed44] {\n  font-size: 1rem;\n  font-weight: 300;\n  color: rgba(255, 255, 255, 0.9);\n  z-index: 1;\n  transition: 0.5s;\n}\nmain .card .box .content a[data-v-a69fed44] {\n  position: relative;\n  display: inline-block;\n  padding: 8px 20px;\n  background: black;\n  border-radius: 5px;\n  text-decoration: none;\n  color: white;\n  margin-top: 20px;\n  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);\n  transition: 0.5s;\n}\nmain .card .box .content a[data-v-a69fed44]:hover {\n  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);\n  background: #fff;\n  color: #000;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -66852,6 +67119,34 @@ if (false) {}
 
 /***/ }),
 
+/***/ "./resources/js/pages/Admin/KelasMapel/Index.vue":
+/*!*******************************************************!*\
+  !*** ./resources/js/pages/Admin/KelasMapel/Index.vue ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Index_vue_vue_type_template_id_118d14ab__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Index.vue?vue&type=template&id=118d14ab */ "./resources/js/pages/Admin/KelasMapel/Index.vue?vue&type=template&id=118d14ab");
+/* harmony import */ var _Index_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Index.vue?vue&type=script&lang=js */ "./resources/js/pages/Admin/KelasMapel/Index.vue?vue&type=script&lang=js");
+/* harmony import */ var C_Users_DARY_MAHDI_Desktop_SEVIMA_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,C_Users_DARY_MAHDI_Desktop_SEVIMA_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Index_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Index_vue_vue_type_template_id_118d14ab__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/pages/Admin/KelasMapel/Index.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
 /***/ "./resources/js/pages/Admin/Kelas/Index.vue":
 /*!**************************************************!*\
   !*** ./resources/js/pages/Admin/Kelas/Index.vue ***!
@@ -67146,6 +67441,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/pages/Admin/KelasMapel/Index.vue?vue&type=script&lang=js":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/pages/Admin/KelasMapel/Index.vue?vue&type=script&lang=js ***!
+  \*******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Index_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Index_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Index.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/pages/Admin/KelasMapel/Index.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
 /***/ "./resources/js/pages/Admin/Kelas/Index.vue?vue&type=script&lang=js":
 /*!**************************************************************************!*\
   !*** ./resources/js/pages/Admin/Kelas/Index.vue?vue&type=script&lang=js ***!
@@ -67334,6 +67645,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Index_vue_vue_type_template_id_0cabaf3d__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Index_vue_vue_type_template_id_0cabaf3d__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Index.vue?vue&type=template&id=0cabaf3d */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/pages/Admin/Guru/Index.vue?vue&type=template&id=0cabaf3d");
+
+
+/***/ }),
+
+/***/ "./resources/js/pages/Admin/KelasMapel/Index.vue?vue&type=template&id=118d14ab":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/pages/Admin/KelasMapel/Index.vue?vue&type=template&id=118d14ab ***!
+  \*************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Index_vue_vue_type_template_id_118d14ab__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Index_vue_vue_type_template_id_118d14ab__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Index.vue?vue&type=template&id=118d14ab */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/pages/Admin/KelasMapel/Index.vue?vue&type=template&id=118d14ab");
 
 
 /***/ }),

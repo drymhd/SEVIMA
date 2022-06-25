@@ -30,7 +30,7 @@ class UserController extends Controller
     {
         $data = User::create([
             'name' => $request->data['name'],
-            'password' => bcrypt($request->data['name']),
+            'password' => bcrypt($request->data['password']),
             'level' => 'siswa',
             'email' => $request->data['email']
         ]);

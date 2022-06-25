@@ -30,7 +30,7 @@ class GuruController extends Controller
     {
         $data = User::create([
             'name' => $request->data['name'],
-            'password' => bcrypt($request->data['name']),
+            'password' => bcrypt($request->data['password']),
             'level' => 'guru',
             'email' => $request->data['email']
         ]);

@@ -1,51 +1,54 @@
 <template>
   <main>
     <div class="container">
-        <h1>Dashboard Admin</h1>
-        
-    </div>
-    
-    <div class="row">
-        <div class="custom_heading-container">
-          <h3 class=" ">
-            Menu untuk E-Learning
-          </h3>
-        </div>
-        <div class="card col-md-3">
-            <div class="box">
-        <div class="content">
-          <h3>guru</h3>
-          <router-link :to="{name: 'admin.guru'}">Klik</router-link>
-        </div>
-      </div>
-    </div>
-        <div class="card col-md-3">
-            <div class="box">
-        <div class="content">
-          <h3>Siswa</h3>
-           <router-link :to="{name: 'admin.siswa'}">Klik</router-link>
-        </div>
-      </div>
-    </div>
-        <div class="card col-md-3">
-            <div class="box">
-        <div class="content">
-          <h3>Kelas</h3>
-          <router-link :to="{name: 'admin.kelas'}">Klik</router-link>
-        </div>
-      </div>
-    </div>
-        <div class="card col-md-3">
-            <div class="box">
-        <div class="content">
-          <h3>Mapel</h3>
-           <router-link :to="{name: 'admin.mapel'}">Klik</router-link>
-        </div>
-      </div>
+      <h1>Dashboard Admin</h1>
     </div>
 
-   
-              </div>
+    <div class="row">
+      <div class="custom_heading-container">
+        <h3 class="">Menu untuk E-Learning</h3>
+      </div>
+      <div class="card col-md-3">
+        <div class="box">
+          <div class="content">
+            <h3>guru</h3>
+            <router-link :to="{ name: 'admin.guru' }">Klik</router-link>
+          </div>
+        </div>
+      </div>
+      <div class="card col-md-3">
+        <div class="box">
+          <div class="content">
+            <h3>Siswa</h3>
+            <router-link :to="{ name: 'admin.siswa' }">Klik</router-link>
+          </div>
+        </div>
+      </div>
+      <div class="card col-md-3">
+        <div class="box">
+          <div class="content">
+            <h3>Kelas</h3>
+            <router-link :to="{ name: 'admin.kelas' }">Klik</router-link>
+          </div>
+        </div>
+      </div>
+      <div class="card col-md-3">
+        <div class="box">
+          <div class="content">
+            <h3>Mapel</h3>
+            <router-link :to="{ name: 'admin.mapel' }">Klik</router-link>
+          </div>
+        </div>
+      </div>
+      <div class="card col-md-3">
+        <div class="box">
+          <div class="content">
+            <h3>Kelas Mapel</h3>
+            <router-link :to="{ name: 'admin.kelasmapel' }">Klik</router-link>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
 </template>
 
@@ -67,21 +70,21 @@ export default {
   justify-content: center;
 }
 
-.custom_heading-container h3{
-    color: black;
-    position: relative;
+.custom_heading-container h3 {
+  color: black;
+  position: relative;
 }
 .custom_heading-container h3:before {
-      content: "";
-      position: absolute;
-      bottom: -7px;
-      left: 50%;
-      width: 50px;
-      height: 7px;
-      transform: translateX(-50%);
-      background-color: rgb(169, 65, 8);
-      border-radius: 15px;
-    }
+  content: "";
+  position: absolute;
+  bottom: -7px;
+  left: 50%;
+  width: 50px;
+  height: 7px;
+  transform: translateX(-50%);
+  background-color: rgb(169, 65, 8);
+  border-radius: 15px;
+}
 
 main .card {
   position: relative;
