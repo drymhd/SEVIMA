@@ -15,7 +15,7 @@
             <div class="box">
         <div class="content">
           <h3>guru</h3>
-          <a href="#">Read More</a>
+          <router-link :to="{name: 'admin.guru'}">Klik</router-link>
         </div>
       </div>
     </div>
@@ -23,7 +23,7 @@
             <div class="box">
         <div class="content">
           <h3>Siswa</h3>
-          <a href="#">Read More</a>
+           <router-link :to="{name: 'admin.siswa'}">Klik</router-link>
         </div>
       </div>
     </div>

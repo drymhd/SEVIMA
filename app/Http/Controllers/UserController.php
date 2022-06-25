@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\GuruDetail;
+use App\Models\Kelas;
+use App\Models\SiswaDetail;
 use App\Models\User;
-use App\Models\Mapel;
 use Illuminate\Http\Request;
 
-class GuruController extends Controller
+class UserController extends Controller
 {
     public function index()
     {
-        $data = User::where('level', 'guru')->get();
+        $data = User::where('level', 'siswa')->get();
         $data->map(function($a) {
             $a->action = '<span class="btn btn-warning edit mr-2" title="edit" data-id="'.$a->id.'">Edit</span><span class="btn btn-danger hapus" title="hapus" data-id="'.$a->id.'">Hapus</span>';
             return $a;
@@ -22,7 +22,7 @@ class GuruController extends Controller
     
     public function indexkelas()
     {
-        $data = Mapel::get();
+        $data = Kelas::get();
         return response()->json(['data' => $data, 'status' => true]);
     }
 
@@ -31,12 +31,12 @@ class GuruController extends Controller
         $data = User::create([
             'name' => $request->data['name'],
             'password' => bcrypt($request->data['name']),
-            'level' => 'guru',
+            'level' => 'siswa',
             'email' => $request->data['email']
         ]);
 
         if(!empty($data)){
-            $siswadetail = GuruDetail::create(['nip' => $request->data['nip'], 'alamat' => $request->data['alamat'], 'mapel_id' => $request->data['mapel_id'], 'deskripsi' => $request->data['deskripsi'], 'user_id' => $data->id]);
+            $siswadetail = SiswaDetail::create(['nisn' => $request->data['nisn'], 'alamat' => $request->data['alamat'], 'kelas_id' => $request->data['kelas_id'], 'deskripsi' => $request->data['deskripsi'], 'user_id' => $data->id]);
             if(!empty($siswadetail)){
                 return response()->json(['status' => true]);
             }
@@ -60,12 +60,12 @@ class GuruController extends Controller
 
     public function get($id)
     {
-        $data = User::with('GuruDetail')->find($id);
+        $data = User::with('SiswaDetail')->find($id);
 
-        $data->nisn = $data->GuruDetail->nisn;
-        $data->alamat = $data->GuruDetail->alamat;
-        $data->mapel_id = $data->GuruDetail->mapel_id;
-        $data->deskripsi = $data->GuruDetail->deskripsi;
+        $data->nisn = $data->SiswaDetail->nisn;
+        $data->alamat = $data->SiswaDetail->alamat;
+        $data->kelas_id = $data->SiswaDetail->kelas_id;
+        $data->deskripsi = $data->SiswaDetail->deskripsi;
 
         return response()->json(['data' => $data, 'status' => true]);
     }
@@ -79,8 +79,8 @@ class GuruController extends Controller
             'email' => $request->data['email']
         ]);
 
-        $detail = GuruDetail::where('user_id', $request->data['id']);
-        $detail->update(['nisn' => $request->data['nisn'], 'alamat' => $request->data['alamat'], 'mapel_id' => $request->data['mapel_id'], 'deskripsi' => $request->data['deskripsi'], 'user_id' => $data->id]);
+        $detail = SiswaDetail::where('user_id', $request->data['id']);
+        $detail->update(['nisn' => $request->data['nisn'], 'alamat' => $request->data['alamat'], 'kelas_id' => $request->data['kelas_id'], 'deskripsi' => $request->data['deskripsi'], 'user_id' => $data->id]);
 
         if($data){
             return response()->json(['status' => true]);

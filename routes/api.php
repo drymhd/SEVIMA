@@ -3,8 +3,10 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\GuruController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\MapelController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +48,22 @@ Route::prefix('v1')->group(function () {
             Route::get('hapus/{id}', [MapelController::class, 'hapus']);
             Route::get('get/{id}', [MapelController::class, 'get']);
             Route::post('edit', [MapelController::class, 'edit']);
+        });
+        Route::prefix('siswa')->group(function () {
+            Route::get('index', [UserController::class, 'index']);
+            Route::get('indexkelas', [UserController::class, 'indexkelas']);
+            Route::post('tambah', [UserController::class, 'tambah']);
+            Route::get('hapus/{id}', [UserController::class, 'hapus']);
+            Route::get('get/{id}', [UserController::class, 'get']);
+            Route::post('edit', [UserController::class, 'edit']);
+        });
+        Route::prefix('guru')->group(function () {
+            Route::get('index', [GuruController::class, 'index']);
+            Route::get('indexkelas', [GuruController::class, 'indexkelas']);
+            Route::post('tambah', [GuruController::class, 'tambah']);
+            Route::get('hapus/{id}', [GuruController::class, 'hapus']);
+            Route::get('get/{id}', [GuruController::class, 'get']);
+            Route::post('edit', [GuruController::class, 'edit']);
         });
     });
 });
