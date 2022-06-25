@@ -12,4 +12,9 @@ class Jawaban extends Model
     protected $fillable = [
         'materi_id', 'siswa_id', 'isi_jawaban'
     ];
+
+    public function user()
+    {
+        return $this->hasOne(User::class, 'id', 'siswa_id');
+    }
 }

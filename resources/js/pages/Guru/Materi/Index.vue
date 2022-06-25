@@ -84,6 +84,10 @@
           </form>
         </div>
       </div>
+      <div class="card-body">
+        <h3>siswa yang sudah mengumpulkan</h3>
+        <paginate id="myTable" ref="myTable" classx="table table-bordered table-striped table-hover rounded" :columns="columns" :url="'/guru/materi/index/jawaban/'+$route.params.id" :callback="callback" :useCard="true"></paginate>
+        </div>
 </div>
   </main>
 </template>
@@ -93,6 +97,10 @@ export default {
   data() {
     return {
       form: {},
+      columns: [
+					{name: 'Nama Siswa', data: 'user.name'},
+					{name: 'Isi Jawaban', data: 'isi_jawaban'},
+				],
       type: "tambah",
       show: false,
       data: {},

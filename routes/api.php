@@ -100,6 +100,7 @@ Route::prefix('v1')->group(function () {
         });
         Route::prefix('materi')->group(function () {
             Route::get('index/{id}', [MateriController::class, 'index']);
+            Route::post('index/jawaban/{id}', [MateriController::class, 'jawaban']);
             Route::post('tambah/{id}', [MateriController::class, 'tambah']);
             Route::get('tugas/{id}', [MateriController::class, 'gettugas']);
             Route::post('edit', [MateriController::class, 'edit']);

@@ -11,7 +11,7 @@
             if(app.$auth.check()){
                 this.$router.push({name: this.$auth.user().level});
             } else {
-                this.$router.push({name: 'home'});
+                this.$router.push({name: 'login'});
             }
         }
     }

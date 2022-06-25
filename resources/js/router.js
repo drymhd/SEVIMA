@@ -36,14 +36,14 @@ const router = createRouter({
                 auth: undefined
             }
         },
-        {
-            path: '/home',
-            name: 'home',
-            component: Home,
-            meta: {
-                auth: undefined
-            }
-        },
+        // {
+        //     path: '/home',
+        //     name: 'home',
+        //     component: Home,
+        //     meta: {
+        //         auth: undefined
+        //     }
+        // },
         {
             path: '/register',
             name: 'register',
