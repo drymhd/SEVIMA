@@ -4,10 +4,14 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Swal from 'sweetalert2'
 import Toastr from 'toastr'
 
+import _ from 'lodash';
+
 import * as bootstrap from 'bootstrap';
 
 window.Swal = Swal;
 window.toastr = Toastr;
+
+import Paginate from './components/Paginate';
 
 import jQuery from 'jquery';
 window.$ = jQuery;
@@ -28,6 +32,7 @@ const app = createApp(App);
 
 
 app
+    .component('paginate', Paginate)
     .use(http)
     .use(router)
     .use(routeAuth)

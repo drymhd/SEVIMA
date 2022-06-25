@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DaftarKelasSiswa;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\GuruKelasController;
 use App\Http\Controllers\KelasController;
@@ -104,4 +105,14 @@ Route::prefix('v1')->group(function () {
             Route::post('edit', [MateriController::class, 'edit']);
         });
     });
+    
+    Route::prefix('siswa')->group(function () {
+        Route::prefix('daftarkelas')->group(function () {
+            Route::post('index', [DaftarKelasSiswa::class, 'index']);
+            Route::post('tambah/{id}', [DaftarKelasSiswa::class, 'tambah']);
+            Route::get('tugas/{id}', [DaftarKelasSiswa::class, 'gettugas']);
+            Route::post('edit', [DaftarKelasSiswa::class, 'edit']);
+        });
+    });
+    Route::post('test', [UserController::class, 'test']);
 });

@@ -25,12 +25,12 @@ class RoomController extends Controller
 
     public function tambah(Request $request)
     {
-$chek = Room::where([['id_kelas', $request->data['kelas_id']], ['id_guru', Auth::user()->id]])->get();
-if(!empty($chek)){
-     
-    return response()->json(['status' => false], 400);
-}
-        
+        $chek = Room::where([['id_kelas', $request->data['kelas_id']], ['id_guru', Auth::user()->id]])->get();
+        if (!empty($chek)) {
+
+            return response()->json(['status' => false], 400);
+        }
+
         $data = Room::create([
             'nama_room' => $request->data['nama_kelas'],
             'id_kelas' => $request->data['kelas_id'],

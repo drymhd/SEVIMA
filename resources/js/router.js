@@ -6,6 +6,7 @@ import Redirect from './pages/Redirect/Index.vue'
 import Home from './pages/Home/Index.vue'
 import Register from './pages/Register'
 import Login from './pages/Login/Index.vue'
+
 import Dashboard from './pages/Siswa/Dashboard/Index.vue'
 import DashboardAdmin from './pages/Admin/Dashboard/Index.vue'
 import KelasAdmin from './pages/Admin/Kelas/Index.vue'
@@ -19,6 +20,9 @@ import KelasGuru from './pages/Guru/Kelas/Index.vue'
 import RuangGuru from './pages/Guru/RuangKelas/Index.vue'
 import RoomGuru from './pages/Guru/Room/Index.vue'
 import MateriGuru from './pages/Guru/Materi/Index.vue'
+
+import DaftarKelasSiswa from './pages/Siswa/daftarkelas/Index.vue'
+import MateriKelasSiswa from './pages/Siswa/Materi/Index.vue'
 // Routes
 const router = createRouter({
     hasbang: false,
@@ -60,6 +64,12 @@ const router = createRouter({
             path: '/dashboard-siswa',
             name: 'siswa',
             component: Dashboard,
+        },
+
+        {
+            path: '/daftarkelas-siswa',
+            name: 'siswa.daftarkelas',
+            component: DaftarKelasSiswa,
         },
 
         // Guru ROUTES
