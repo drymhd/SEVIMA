@@ -8,6 +8,7 @@ import Register from './pages/Register'
 import Login from './pages/Login/Index.vue'
 import Dashboard from './pages/Siswa/Dashboard/Index.vue'
 import DashboardAdmin from './pages/Admin/Dashboard/Index.vue'
+import KelasAdmin from './pages/Admin/Kelas/Index.vue'
 
 // Routes
 const router = createRouter({
@@ -58,6 +59,11 @@ const router = createRouter({
             path: '/dashboard-admin',
             name: 'admin',
             component: DashboardAdmin,
+        },
+        {
+            path: '/kelas-admin',
+            name: 'admin.kelas',
+            component: KelasAdmin,
         },
 
     ]

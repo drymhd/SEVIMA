@@ -31,7 +31,7 @@
             <div class="box">
         <div class="content">
           <h3>Kelas</h3>
-          <a href="#">Read More</a>
+          <router-link :to="{name: 'admin.kelas'}">Klik</router-link>
         </div>
       </div>
     </div>
@@ -59,7 +59,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800&display=swap");
 
 .custom_heading-container {

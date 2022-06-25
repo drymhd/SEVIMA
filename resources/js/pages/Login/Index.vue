@@ -93,7 +93,7 @@ import Swal from 'sweetalert2';
   }
 </script>
 
-<style>
+<style scoped>
 
 
 

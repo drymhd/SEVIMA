@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\KelasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,20 +22,22 @@ Route::prefix('v1')->group(function () {
         // Below mention routes are public, user can access those without any restriction.
         // Create New User
         Route::post('register', [AuthController::class, 'register']);
-
-        // Login User
         Route::post('login', [AuthController::class, 'login']);
-        
-        // Refresh the JWT Token
         Route::get('refresh', [AuthController::class, 'refresh']);
-        
-        // Below mention routes are available only for the authenticated users.
         Route::middleware('auth:api')->group(function () {
-            // Get user info
             Route::get('user', [AuthController::class, 'user']);
-
-            // Logout user from application
             Route::post('logout', [AuthController::class, 'logout']);
+        });
+    });
+
+    Route::prefix('admin')->group(function () {
+
+        Route::prefix('kelas')->group(function () {
+            Route::get('index', [KelasController::class, 'index']);
+            Route::post('tambah', [KelasController::class, 'tambah']);
+            Route::get('hapus/{id}', [KelasController::class, 'hapus']);
+            Route::get('get/{id}', [KelasController::class, 'get']);
+            Route::post('edit', [KelasController::class, 'edit']);
         });
     });
 });

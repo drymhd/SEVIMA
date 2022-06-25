@@ -42,6 +42,8 @@
 </script>
 
 <style>
+@import "toastr";
+
 .header{
   position: relative;
     background-color: #def7ff;

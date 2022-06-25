@@ -2,8 +2,13 @@ require('./bootstrap');
 import 'bootstrap/dist/css/bootstrap.css';
 
 import Swal from 'sweetalert2'
+import Toastr from 'toastr'
 
 window.Swal = Swal;
+window.toastr = Toastr;
+
+import jQuery from 'jquery';
+window.$ = jQuery;
 
 import 'es6-promise'
 window.jQuery = require('jquery');
