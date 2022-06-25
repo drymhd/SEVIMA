@@ -26,7 +26,8 @@ class RoomController extends Controller
     public function tambah(Request $request)
     {
         $chek = Room::where([['id_kelas', $request->data['kelas_id']], ['id_guru', Auth::user()->id]])->get();
-        if (!empty($chek)) {
+
+        if (!count($chek) == 0) {
 
             return response()->json(['status' => false], 400);
         }

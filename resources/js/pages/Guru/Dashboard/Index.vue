@@ -2,7 +2,7 @@
   <main>
     
     <div class="container">
-      <h1>Dashboard Admin</h1>
+      <h1>Dashboard Guru</h1>
     </div>
 
     <div class="row">
@@ -24,30 +24,7 @@
             <router-link :to="{ name: 'guru.ruangkelas' }">Klik</router-link>
           </div>
         </div>
-      </div>
-      <div class="card col-md-3">
-        <div class="box">
-          <div class="content">
-            <h3>Kelas</h3>
-            <router-link :to="{ name: 'admin.kelas' }">Klik</router-link>
-          </div>
-        </div>
-      </div>
-      <div class="card col-md-3">
-        <div class="box">
-          <div class="content">
-            <h3>Mapel</h3>
-            <router-link :to="{ name: 'admin.mapel' }">Klik</router-link>
-          </div>
-        </div>
-      </div>
-      <div class="card col-md-3">
-        <div class="box">
-          <div class="content">
-            <h3>Kelas Mapel</h3>
-            <router-link :to="{ name: 'admin.kelasmapel' }">Klik</router-link>
-          </div>
-        </div>
+    
       </div>
     </div>
 
