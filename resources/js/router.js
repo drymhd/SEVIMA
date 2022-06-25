@@ -16,6 +16,7 @@ import KelasMapelAdmin from './pages/Admin/KelasMapel/Index.vue'
 
 import DashboardGuru from './pages/Guru/Dashboard/Index.vue'
 import KelasGuru from './pages/Guru/Kelas/Index.vue'
+import RuangGuru from './pages/Guru/RuangKelas/Index.vue'
 // Routes
 const router = createRouter({
     hasbang: false,
@@ -69,6 +70,11 @@ const router = createRouter({
             path: '/daftarkelas-guru',
             name: 'guru.daftarkelas',
             component: KelasGuru,
+        },
+        {
+            path: '/ruangkelas-guru',
+            name: 'guru.ruangkelas',
+            component: RuangGuru,
         },
 
         //Admin ROUTES

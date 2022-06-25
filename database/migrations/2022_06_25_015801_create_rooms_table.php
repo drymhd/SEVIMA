@@ -18,6 +18,8 @@ class CreateRoomsTable extends Migration
             $table->string('nama_room');
             $table->unsignedBigInteger('id_guru');
             $table->foreign('id_guru')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('id_kelas');
+            $table->foreign('id_kelas')->references('id')->on('kelas')->onDelete('cascade');
             $table->timestamps();
         });
     }

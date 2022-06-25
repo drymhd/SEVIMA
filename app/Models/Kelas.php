@@ -16,4 +16,11 @@ class Kelas extends Model
         return $this->belongsToMany(Mapel::class, 'kelas_mapels', 'kelas_id', 'mapel_id');
     }
 
+    public function kelasguru()
+    {
+        return $this->belongsToMany(User::class, 'guru_kelas', 'kelas_id', 'guru_id');
+    }
+
+
+
 }

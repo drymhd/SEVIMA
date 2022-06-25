@@ -10,6 +10,11 @@ class Room extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nama_room', 'id_guru'
+        'nama_room', 'id_guru', 'id_kelas'
     ];
+
+    public function RoomKelas()
+    {
+        return $this->belongsToMany(Kelas::class, 'room_kelas', 'room_id', 'kelas_id');
+    }
 }

@@ -8,6 +8,7 @@ use App\Http\Controllers\GuruKelasController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\KelasMapelController;
 use App\Http\Controllers\MapelController;
+use App\Http\Controllers\RoomController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -83,6 +84,11 @@ Route::prefix('v1')->group(function () {
             Route::get('index', [GuruKelasController::class, 'index']);
             Route::get('indexkelas', [GuruKelasController::class, 'indexkelas']);
             Route::get('klik/{kelas_id}/{mapel_id}', [GuruKelasController::class, 'klik']);
+        });
+        Route::prefix('room')->group(function () {
+            Route::get('index', [RoomController::class, 'index']);
+            Route::get('indexkelas', [RoomController::class, 'indexkelas']);
+            Route::post('tambah', [RoomController::class, 'tambah']);
         });
     });
 });

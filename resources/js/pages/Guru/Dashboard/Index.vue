@@ -20,7 +20,7 @@
         <div class="box">
           <div class="content">
             <h3>Ruang Kelas</h3>
-            <router-link :to="{ name: 'admin.siswa' }">Klik</router-link>
+            <router-link :to="{ name: 'guru.ruangkelas' }">Klik</router-link>
           </div>
         </div>
       </div>
