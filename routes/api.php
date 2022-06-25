@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\KelasController;
+use App\Http\Controllers\MapelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +39,13 @@ Route::prefix('v1')->group(function () {
             Route::get('hapus/{id}', [KelasController::class, 'hapus']);
             Route::get('get/{id}', [KelasController::class, 'get']);
             Route::post('edit', [KelasController::class, 'edit']);
+        });
+        Route::prefix('mapel')->group(function () {
+            Route::get('index', [MapelController::class, 'index']);
+            Route::post('tambah', [MapelController::class, 'tambah']);
+            Route::get('hapus/{id}', [MapelController::class, 'hapus']);
+            Route::get('get/{id}', [MapelController::class, 'get']);
+            Route::post('edit', [MapelController::class, 'edit']);
         });
     });
 });

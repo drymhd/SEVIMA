@@ -2,12 +2,12 @@
     <main class="container">
 
       <div class="card" v-if="show">
-  <h5 class="card-header">Tambah Kelas</h5>
+  <h5 class="card-header">Tambah Mata Pelajaran</h5>
   <div class="card-body">
    <form autocomplete="off" @submit.prevent="tambah">
                 <div class="form-group">
-                    <label for="name">Nama Kelas</label>
-                    <input type="text" id="name" class="form-control" placeholder="Nama Kelas" required v-model="form.nama_kelas">
+                    <label for="name">Nama Mapel</label>
+                    <input type="text" id="name" class="form-control" placeholder="Nama Mapel" required v-model="form.nama_mapel">
                 </div>
                 <br>
                 <button type="submit" class="btn btn-primary" >{{type}}</button> <button type="button" class="btn btn-danger" @click.prevent="show = false" >Batal</button>
@@ -20,13 +20,13 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th scope="col">Nama Kelas</th>
+      <th scope="col">Nama Mapel</th>
       <th scope="col">Aksi</th>
     </tr>
   </thead>
-  <tbody v-if="dataguru.length != 0">
-    <tr v-for="data in dataguru">
-      <td style="width: 70%">{{data.nama_kelas}}</td>
+  <tbody v-if="datamapel.length != 0">
+    <tr v-for="data in datamapel">
+      <td style="width: 70%">{{data.nama_mapel}}</td>
       <td v-html="data.action"></td>
     </tr>
   </tbody>
@@ -47,7 +47,7 @@
             return {
               type: 'tambah',
               show: false,
-                dataguru: [],
+                datamapel: [],
                 form: {}
             }
         },
@@ -62,7 +62,7 @@
          tambah(){
           var app = this;
           if(app.type != 'tambah'){
-            app.$http.post('admin/kelas/edit', {data: app.form}).then((res) => {
+            app.$http.post('admin/mapel/edit', {data: app.form}).then((res) => {
               toastr.success('sukses megedit data', 'sukses');
               app.index();
                           app.show = false;
@@ -71,7 +71,7 @@
               toastr.error('gagal mengedit data', 'gagal');
             });
           } else 
-          app.$http.post('admin/kelas/tambah', {data: app.form}).then((res) => {
+          app.$http.post('admin/mapel/tambah', {data: app.form}).then((res) => {
             toastr.success('sukses menambah data', 'sukses');
             app.index();
                         app.show = false;
@@ -84,8 +84,8 @@
         index(){
           var app = this;
 
-            app.$http.get('admin/kelas/index').then((res) => {
-                app.dataguru = res.data.data;
+            app.$http.get('admin/mapel/index').then((res) => {
+                app.datamapel = res.data.data;
             }).catch((err) => {
                 Swal.fire('Error');
             })
@@ -105,7 +105,7 @@
           var app = this;
           app.show = true;
           app.type = 'edit';
-          app.$http.get('admin/kelas/get/'+id).then((res) => {
+          app.$http.get('admin/mapel/get/'+id).then((res) => {
             app.form = res.data.data;
           }).catch((err) => {
             toastr.error('sesuatu error terjadi', 'error');
@@ -113,7 +113,7 @@
         },
         hapus(id){
           var app = this;
-          app.$http.get("admin/kelas/hapus/"+id).then((res) => {
+          app.$http.get("admin/mapel/hapus/"+id).then((res) => {
             toastr.success('sukses menghapus data', 'sukses');
             app.index();
 

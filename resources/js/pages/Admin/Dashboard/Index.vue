@@ -39,7 +39,7 @@
             <div class="box">
         <div class="content">
           <h3>Mapel</h3>
-          <a href="#">Read More</a>
+           <router-link :to="{name: 'admin.mapel'}">Klik</router-link>
         </div>
       </div>
     </div>
