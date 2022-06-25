@@ -8,6 +8,7 @@ use App\Http\Controllers\GuruKelasController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\KelasMapelController;
 use App\Http\Controllers\MapelController;
+use App\Http\Controllers\MateriController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\RoomMTController;
 use App\Http\Controllers\UserController;
@@ -95,6 +96,12 @@ Route::prefix('v1')->group(function () {
             Route::get('index/{id}', [RoomMTController::class, 'index']);
             Route::post('tambah/{id}', [RoomMTController::class, 'tambah']);
             Route::post('tambah', [RoomMTController::class, 'tambah']);
+        });
+        Route::prefix('materi')->group(function () {
+            Route::get('index/{id}', [MateriController::class, 'index']);
+            Route::post('tambah/{id}', [MateriController::class, 'tambah']);
+            Route::get('tugas/{id}', [MateriController::class, 'gettugas']);
+            Route::post('edit', [MateriController::class, 'edit']);
         });
     });
 });

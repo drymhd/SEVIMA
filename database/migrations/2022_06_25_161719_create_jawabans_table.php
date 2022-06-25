@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTugasTable extends Migration
+class CreateJawabansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,8 @@ class CreateTugasTable extends Migration
      */
     public function up()
     {
-        Schema::create('tugas', function (Blueprint $table) {
+        Schema::create('jawabans', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_materi');
-            $table->foreign('id_materi')->references('id')->on('materis')->onDelete('cascade');
-
-            $table->string('nama_tugas');
-            $table->text('isi_tugas')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +26,6 @@ class CreateTugasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tugas');
+        Schema::dropIfExists('jawabans');
     }
 }

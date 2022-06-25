@@ -4,6 +4,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Swal from 'sweetalert2'
 import Toastr from 'toastr'
 
+import * as bootstrap from 'bootstrap';
+
 window.Swal = Swal;
 window.toastr = Toastr;
 

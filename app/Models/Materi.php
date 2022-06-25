@@ -10,4 +10,9 @@ class Materi extends Model
     use HasFactory;
 
     protected $fillable = ['id_room', 'nama_materi', 'isi_materi'];
+
+    public function tugas()
+    {
+        return $this->hasOne(Tugas::class, 'id_materi', 'id');
+    }
 }
