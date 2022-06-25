@@ -44,7 +44,7 @@
         <div class="box">
           <div class="content">
             <h3>{{data.nama_room}}</h3>
-            <router-link :to="{ name: 'guru.daftarkelas' }">Klik</router-link>
+            <router-link :to="{ name: 'guru.room', params: {id: data.id} }">Klik</router-link>
           </div>
         </div>
       </div>

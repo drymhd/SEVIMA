@@ -17,4 +17,9 @@ class Room extends Model
     {
         return $this->belongsToMany(Kelas::class, 'room_kelas', 'room_id', 'kelas_id');
     }
+
+    public function Materi()
+    {
+        return $this->hasMany(Materi::class, 'id_room', 'id');
+    }
 }

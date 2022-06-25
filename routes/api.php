@@ -9,6 +9,7 @@ use App\Http\Controllers\KelasController;
 use App\Http\Controllers\KelasMapelController;
 use App\Http\Controllers\MapelController;
 use App\Http\Controllers\RoomController;
+use App\Http\Controllers\RoomMTController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -89,6 +90,11 @@ Route::prefix('v1')->group(function () {
             Route::get('index', [RoomController::class, 'index']);
             Route::get('indexkelas', [RoomController::class, 'indexkelas']);
             Route::post('tambah', [RoomController::class, 'tambah']);
+        });
+        Route::prefix('roommateri')->group(function () {
+            Route::get('index/{id}', [RoomMTController::class, 'index']);
+            Route::post('tambah/{id}', [RoomMTController::class, 'tambah']);
+            Route::post('tambah', [RoomMTController::class, 'tambah']);
         });
     });
 });
