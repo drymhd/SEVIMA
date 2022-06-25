@@ -41,4 +41,9 @@ class User extends Authenticatable implements JWTSubject
     {
         return $this->hasOne(GuruDetail::class, 'user_id', 'id');
     }
+
+    public function GuruKelas()
+    {
+        return $this->belongsToMany(Kelas::class, 'guru_kelas', 'guru_id', 'kelas_id');
+    }
 }

@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GuruController;
+use App\Http\Controllers\GuruKelasController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\KelasMapelController;
 use App\Http\Controllers\MapelController;
@@ -75,6 +76,13 @@ Route::prefix('v1')->group(function () {
             Route::get('hapus/{id}', [GuruController::class, 'hapus']);
             Route::get('get/{id}', [GuruController::class, 'get']);
             Route::post('edit', [GuruController::class, 'edit']);
+        });
+    });
+    Route::prefix('guru')->group(function () {
+        Route::prefix('kelas')->group(function () {
+            Route::get('index', [GuruKelasController::class, 'index']);
+            Route::get('indexkelas', [GuruKelasController::class, 'indexkelas']);
+            Route::get('klik/{kelas_id}/{mapel_id}', [GuruKelasController::class, 'klik']);
         });
     });
 });

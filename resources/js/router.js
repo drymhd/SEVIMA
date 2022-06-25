@@ -14,6 +14,8 @@ import SiswaAdmin from './pages/Admin/Siswa/Index.vue'
 import GuruAdmin from './pages/Admin/Guru/Index.vue'
 import KelasMapelAdmin from './pages/Admin/KelasMapel/Index.vue'
 
+import DashboardGuru from './pages/Guru/Dashboard/Index.vue'
+import KelasGuru from './pages/Guru/Kelas/Index.vue'
 // Routes
 const router = createRouter({
     hasbang: false,
@@ -55,6 +57,18 @@ const router = createRouter({
             path: '/dashboard-siswa',
             name: 'siswa',
             component: Dashboard,
+        },
+
+        // Guru ROUTES
+        {
+            path: '/dashboard-guru',
+            name: 'guru',
+            component: DashboardGuru,
+        },
+        {
+            path: '/daftarkelas-guru',
+            name: 'guru.daftarkelas',
+            component: KelasGuru,
         },
 
         //Admin ROUTES
