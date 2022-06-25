@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMapelsTable extends Migration
+class CreateAbsensisTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class CreateMapelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('mapels', function (Blueprint $table) {
+        Schema::create('absensis', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_mapel');
+            $table->date('tanggal');
+            $table->time('jam_masuk');
+            $table->unsignedBigInteger('id_siswa');
+            $table->foreign('id_siswa')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -27,6 +30,6 @@ class CreateMapelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mapels');
+        Schema::dropIfExists('absensis');
     }
 }

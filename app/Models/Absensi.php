@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class GuruDetail extends Model
+class Absensi extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nip', 'alamat', 'deskripsi', 'foto', 'user_id', 'mapel_id'];
+    protected $fillable = ['tanggal', 'jam_masuk', 'id_siswa'];
 }

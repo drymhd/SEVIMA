@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Materi extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['id_room', 'nama_materi', 'isi_materi'];
 }

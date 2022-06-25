@@ -15,7 +15,13 @@ class CreateSiswaDetailsTable extends Migration
     {
         Schema::create('siswa_details', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('nisn');
+            $table->string('alamat');
+            $table->string('deskripsi');
+            $table->string('foto')->nullable();
+
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

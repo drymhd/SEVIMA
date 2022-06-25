@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Mapel extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'nama_mapel'
+    ];
 }

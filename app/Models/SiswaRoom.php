@@ -5,9 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class GuruDetail extends Model
+class SiswaRoom extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nip', 'alamat', 'deskripsi', 'foto', 'user_id', 'mapel_id'];
+    protected $fillable = [
+        'id_siswa', 'id_room'
+    ];
 }

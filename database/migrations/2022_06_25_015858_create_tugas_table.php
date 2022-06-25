@@ -15,6 +15,12 @@ class CreateTugasTable extends Migration
     {
         Schema::create('tugas', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('id_materi');
+            $table->foreign('id_materi')->references('id')->on('materis')->onDelete('cascade');
+
+            $table->string('nama_tugas');
+            $table->text('isi_jawaban')->nullable();
+            $table->string('file_jawaban')->nullable();
             $table->timestamps();
         });
     }
