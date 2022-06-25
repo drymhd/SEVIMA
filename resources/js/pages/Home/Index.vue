@@ -15,12 +15,16 @@
 </template>
 
 <script>
+import auth from '../../auth';
+
 export default {
     data(){
     },
     mounted(){
         var app = this;
-        console.log(app.$auth.user());
+        if(app.$auth.check() == true){
+          app.$router.push({name: 'redirect'});
+        }
     }
 }
 </script>

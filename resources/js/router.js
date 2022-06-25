@@ -5,8 +5,9 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Redirect from './pages/Redirect/Index.vue'
 import Home from './pages/Home/Index.vue'
 import Register from './pages/Register'
-import Login from './pages/Login'
+import Login from './pages/Login/Index.vue'
 import Dashboard from './pages/Siswa/Dashboard/Index.vue'
+import DashboardAdmin from './pages/Admin/Dashboard/Index.vue'
 
 // Routes
 const router = createRouter({
@@ -21,11 +22,11 @@ const router = createRouter({
             }
         },
         {
-            path: '/',
+            path: '/home',
             name: 'home',
             component: Home,
             meta: {
-                auth: false
+                auth: undefined
             }
         },
         {
@@ -50,6 +51,15 @@ const router = createRouter({
             name: 'siswa',
             component: Dashboard,
         },
+
+        //Admin ROUTES
+
+        {
+            path: '/dashboard-admin',
+            name: 'admin',
+            component: DashboardAdmin,
+        },
+
     ]
 })
 

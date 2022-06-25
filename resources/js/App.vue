@@ -16,8 +16,34 @@
         //
       }
     },
+    methods: {
+      middleware(level, levels=[]) {
+                var app = this;
+                if(levels.length != 0){
+                    if(levels.includes(app.$auth.user().level)){
+                        return
+                    }else{
+                        app.$router.push({name: 'notfound'});
+                    }
+                }else{
+                    if(app.$auth.user().level == level || level == 'all') {
+                        return;
+                    }else{
+                        app.$router.push({name: 'notfound'});
+                    }
+                }
+            },
+
+    },
     components: {
       Menu: Menu
     }
   }
 </script>
+
+<style>
+.header{
+  position: relative;
+    background-color: #def7ff;
+}
+</style>
