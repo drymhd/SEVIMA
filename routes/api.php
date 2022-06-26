@@ -42,7 +42,7 @@ Route::prefix('v1')->group(function () {
     Route::prefix('admin')->group(function () {
 
         Route::prefix('kelas')->group(function () {
-            Route::get('index', [KelasController::class, 'index']);
+            Route::post('index', [KelasController::class, 'index']);
             Route::post('tambah', [KelasController::class, 'tambah']);
             Route::get('hapus/{id}', [KelasController::class, 'hapus']);
             Route::get('get/{id}', [KelasController::class, 'get']);
@@ -59,14 +59,14 @@ Route::prefix('v1')->group(function () {
             Route::post('edit', [KelasMapelController::class, 'edit']);
         });
         Route::prefix('mapel')->group(function () {
-            Route::get('index', [MapelController::class, 'index']);
+            Route::post('index', [MapelController::class, 'index']);
             Route::post('tambah', [MapelController::class, 'tambah']);
             Route::get('hapus/{id}', [MapelController::class, 'hapus']);
             Route::get('get/{id}', [MapelController::class, 'get']);
             Route::post('edit', [MapelController::class, 'edit']);
         });
         Route::prefix('siswa')->group(function () {
-            Route::get('index', [UserController::class, 'index']);
+            Route::post('index', [UserController::class, 'index']);
             Route::get('indexkelas', [UserController::class, 'indexkelas']);
             Route::post('tambah', [UserController::class, 'tambah']);
             Route::get('hapus/{id}', [UserController::class, 'hapus']);
@@ -74,7 +74,7 @@ Route::prefix('v1')->group(function () {
             Route::post('edit', [UserController::class, 'edit']);
         });
         Route::prefix('guru')->group(function () {
-            Route::get('index', [GuruController::class, 'index']);
+            Route::post('index', [GuruController::class, 'index']);
             Route::get('indexkelas', [GuruController::class, 'indexkelas']);
             Route::post('tambah', [GuruController::class, 'tambah']);
             Route::get('hapus/{id}', [GuruController::class, 'hapus']);

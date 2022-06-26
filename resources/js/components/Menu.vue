@@ -20,7 +20,7 @@
       </ul>
       <ul class="navbar-nav ml-auto" v-if="$auth.check()">
         <li class="nav-item">
-          <a class="nav-link" href="#" @click.prevent="$auth.logout()">Logout</a>
+          <a class="nav-link" href="#" @click.prevent="logout()">Logout</a>
         </li>
       </ul>
     </div>
@@ -40,7 +40,6 @@ import {useAuth  } from '@websanova/vue-auth/src/v3.js';
         routes: {
           // UNLOGGED
           unlogged: [
-            { name: 'Register', path: 'register' },
             { name: 'Login', path: 'login'}
           ],
           // LOGGED USER
@@ -59,6 +58,28 @@ import {useAuth  } from '@websanova/vue-auth/src/v3.js';
         
         console.log(this.$auth.user())
       }, 1000);
+    },methods: {
+      logout(){
+        var app = this;
+        Swal.fire({
+  title: 'Are you sure?',
+  text: "You won't be able to revert this!",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Yes, logout!'
+}).then((result) => {
+  if (result.isConfirmed) {
+    app.$auth.logout()
+    Swal.fire(
+      'Logout!',
+      'kamu telah keluar.',
+      'success'
+    )
+  }
+})
+      }
     }
   }
 </script>

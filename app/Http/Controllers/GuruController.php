@@ -9,15 +9,29 @@ use Illuminate\Http\Request;
 
 class GuruController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $data = User::where('level', 'guru')->get();
-        $data->map(function($a) {
-            $a->action = '<span class="btn btn-warning edit mr-2" title="edit" data-id="'.$a->id.'">Edit</span><span class="btn btn-danger hapus" title="hapus" data-id="'.$a->id.'">Hapus</span>';
-            return $a;
-        });
 
-        return response()->json(['data' => $data, 'status' => true]);
+        if (request()->wantsJson() && request()->ajax()) {
+            // Set Request Per Page
+            $per = (($request->per) ? $request->per : 10);
+            
+            // Get User By Search And Per Page
+            $user = User::where('level', 'guru')->where(function($q) use ($request) {
+                $q->where('name', 'LIKE', '%'.$request->search.'%')
+                ->orWhere('email', 'LIKE', '%'.$request->search.'%');
+            })->orderBy('id','asc')->paginate($per);
+
+            // Add Columns
+            $user->map(function($a) {
+                $a->action = '<span class="btn btn-warning edit mr-2" title="edit" data-id="'.$a->id.'">Edit</span><span class="btn btn-danger hapus" title="hapus" data-id="'.$a->id.'">Hapus</span>';
+                return $a;
+            });
+            return response()->json($user);
+
+        }else{
+            abort(404);
+        }
     }
     
     public function indexkelas()

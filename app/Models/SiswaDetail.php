@@ -12,4 +12,9 @@ class SiswaDetail extends Model
     protected $fillable = [
         'nisn', 'alamat', 'deskripsi', 'foto', 'user_id', 'kelas_id'
     ];
+
+    public function kelas()
+    {
+        return $this->hasOne(Kelas::class, 'id', 'kelas_id');
+    }
 }

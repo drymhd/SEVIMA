@@ -1,5 +1,22 @@
 <template>
   <main>
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Profile</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" style="white-space: pre-line">
+    {{$auth.user().name}} - {{$auth.user().siswa_detail.kelas.nama_kelas}} - {{$auth.user().siswa_detail.nisn}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>
     
     <div class="container">
       <h1>Dashboard Siswa</h1>
@@ -20,32 +37,8 @@
       <div class="card col-md-3">
         <div class="box">
           <div class="content">
-            <h3>Ruang Kelas</h3>
-            <router-link :to="{ name: 'guru.ruangkelas' }">Klik</router-link>
-          </div>
-        </div>
-      </div>
-      <div class="card col-md-3">
-        <div class="box">
-          <div class="content">
-            <h3>Kelas</h3>
-            <router-link :to="{ name: 'admin.kelas' }">Klik</router-link>
-          </div>
-        </div>
-      </div>
-      <div class="card col-md-3">
-        <div class="box">
-          <div class="content">
-            <h3>Mapel</h3>
-            <router-link :to="{ name: 'admin.mapel' }">Klik</router-link>
-          </div>
-        </div>
-      </div>
-      <div class="card col-md-3">
-        <div class="box">
-          <div class="content">
-            <h3>Kelas Mapel</h3>
-            <router-link :to="{ name: 'admin.kelasmapel' }">Klik</router-link>
+            <h3>Profile</h3>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Klik</button>
           </div>
         </div>
       </div>

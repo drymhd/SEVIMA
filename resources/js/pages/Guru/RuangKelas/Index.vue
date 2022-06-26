@@ -40,7 +40,8 @@
       <div class="custom_heading-container">
         <h3 class="">Daftar Kelas</h3>
       </div>
-      <div class="card1 col-md-3" v-if="room.length != 0" v-for="data in room">
+      
+      <div class="card1 col-md-12" v-if="room.length != 0" v-for="data in room">
         <div class="box">
           <div class="content">
             <h3>{{data.nama_room}}</h3>
@@ -137,7 +138,8 @@ main .card1 {
   position: relative;
   min-width: 320px;
   height: 200px;
-  margin-top: 20px;
+  margin-top: 50px;
+  margin-bottom: 50px;
   box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2),
     inset -5px -5px 15px rgba(255, 255, 255, 0.1),
     5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1);

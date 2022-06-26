@@ -17,23 +17,9 @@
 
 <button class="btn btn-primary btn-lg" @click.prevent="show = true; type = 'tambah'" v-if="!show">Tambah</button>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Nama Mapel</th>
-      <th scope="col">Aksi</th>
-    </tr>
-  </thead>
-  <tbody v-if="datamapel.length != 0">
-    <tr v-for="data in datamapel">
-      <td style="width: 70%">{{data.nama_mapel}}</td>
-      <td v-html="data.action"></td>
-    </tr>
-  </tbody>
-  <tbody v-else>
-    <td colspan="2" class="text-center">Tidak ada data</td>
-  </tbody>
-</table>
+<div class="card-body">
+        <paginate id="myTable" ref="myTable" classx="table table-bordered table-striped table-hover rounded" :columns="columns" url="/admin/mapel/index" :callback="callback" :useCard="true"></paginate>
+        </div>
     </main>
 
 </template>
@@ -48,6 +34,10 @@
               type: 'tambah',
               show: false,
                 datamapel: [],
+                columns: [
+					{name: 'Nama Kelas', data: 'nama_mapel'},
+					{name: 'Aksi', data: 'action', style: 'width: 175px'}
+				],
                 form: {}
             }
         },
@@ -84,11 +74,7 @@
         index(){
           var app = this;
 
-            app.$http.get('admin/mapel/index').then((res) => {
-                app.datamapel = res.data.data;
-            }).catch((err) => {
-                Swal.fire('Error');
-            })
+          app.$refs.myTable.reload();
         },
         loadtable(){
           var app = this;

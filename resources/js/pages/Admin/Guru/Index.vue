@@ -44,24 +44,9 @@
 
 <button class="btn btn-primary btn-lg" @click.prevent="show = true; type = 'tambah'" v-if="!show">Tambah</button>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Nama Guru</th>
-      <th scope="col">Aksi</th>
-    </tr>
-  </thead>
-  <tbody v-if="datasiswa.length != 0">
-    <tr v-for="data in datasiswa">
-      <td style="width: 35%">{{data.name}}</td>
-      <td style="width: 35%">{{data.email}}</td>
-      <td v-html="data.action"></td>
-    </tr>
-  </tbody>
-  <tbody v-else>
-    <td colspan="2" class="text-center">Tidak ada data</td>
-  </tbody>
-</table>
+<div class="card-body">
+        <paginate id="myTable" ref="myTable" classx="table table-bordered table-striped table-hover rounded" :columns="columns" url="/admin/guru/index" :callback="callback" :useCard="true"></paginate>
+        </div>
     </main>
 
 </template>
@@ -83,6 +68,11 @@
               show: false,
                 datasiswa: [],
                 datakelas: [],
+                columns: [
+					{name: 'Nama Guru', data: 'name'},
+					{name: 'Email', data: 'email'},
+					{name: 'Aksi', data: 'action', style: 'width: 175px'}
+				],
                 form: {}
             }
         },
@@ -118,13 +108,7 @@
         },
         index(){
           var app = this;
-
-            app.$http.get('admin/guru/index').then((res) => {
-                app.datasiswa = res.data.data;
-            }).catch((err) => {
-                Swal.fire('Error');
-            })
-
+            app.$refs.myTable.reload();
             app.$http.get('admin/guru/indexkelas').then((res) => {
                 app.datakelas = res.data.data;
             }).catch((err) => {

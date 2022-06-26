@@ -17,23 +17,9 @@
 
 <button class="btn btn-primary btn-lg" @click.prevent="show = true; type = 'tambah'" v-if="!show">Tambah</button>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Nama Kelas</th>
-      <th scope="col">Aksi</th>
-    </tr>
-  </thead>
-  <tbody v-if="dataguru.length != 0">
-    <tr v-for="data in dataguru">
-      <td style="width: 70%">{{data.nama_kelas}}</td>
-      <td v-html="data.action"></td>
-    </tr>
-  </tbody>
-  <tbody v-else>
-    <td colspan="2" class="text-center">Tidak ada data</td>
-  </tbody>
-</table>
+<div class="card-body">
+        <paginate id="myTable" ref="myTable" classx="table table-bordered table-striped table-hover rounded" :columns="columns" url="/admin/kelas/index" :callback="callback" :useCard="true"></paginate>
+        </div>
     </main>
 
 </template>
@@ -48,7 +34,11 @@
               type: 'tambah',
               show: false,
                 dataguru: [],
-                form: {}
+                form: {},
+                columns: [
+					{name: 'Nama Kelas', data: 'nama_kelas'},
+					{name: 'Aksi', data: 'action', style: 'width: 175px'}
+				],
             }
         },
         methods: {
@@ -84,11 +74,7 @@
         index(){
           var app = this;
 
-            app.$http.get('admin/kelas/index').then((res) => {
-                app.dataguru = res.data.data;
-            }).catch((err) => {
-                Swal.fire('Error');
-            })
+           app.$refs.myTable.reload();
         },
         loadtable(){
           var app = this;
