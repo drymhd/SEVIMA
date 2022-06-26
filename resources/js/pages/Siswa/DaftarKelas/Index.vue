@@ -32,7 +32,10 @@ callback() {
 
         },
         mounted() {
-            
+            var app = this;
+             if (app.$auth.user().level != "siswa") {
+      app.$router.push({ name: "notfound" });
+    }
         }
     }
 </script>

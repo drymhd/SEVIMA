@@ -55,6 +55,11 @@
 
         },
         mounted() {
+          var app = this;
+    if (app.$auth.user().level != "admin") {
+      app.$router.push({ name: "notfound" });
+    }
+
             this.index();
             this.loadtable();
         },

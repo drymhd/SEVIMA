@@ -36,14 +36,6 @@ const router = createRouter({
                 auth: undefined
             }
         },
-        // {
-        //     path: '/home',
-        //     name: 'home',
-        //     component: Home,
-        //     meta: {
-        //         auth: undefined
-        //     }
-        // },
         {
             path: '/register',
             name: 'register',
@@ -141,6 +133,16 @@ const router = createRouter({
             path: '/kelasmapel-admin',
             name: 'admin.kelasmapel',
             component: KelasMapelAdmin,
+        },
+        {
+            path: '/*',
+            name: 'notfound',
+            component: Redirect,
+        },
+        {
+            path: '/404',
+            name: 'notfound404',
+            component: Redirect,
         },
 
     ]

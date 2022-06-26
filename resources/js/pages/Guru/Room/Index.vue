@@ -115,6 +115,9 @@ export default {
   },
   mounted() {
     var app = this;
+    if (app.$auth.user().level != "guru") {
+      app.$router.push({ name: "notfound" });
+    }
     app.index();
   },
 };

@@ -24612,7 +24612,15 @@ __webpack_require__.r(__webpack_exports__);
     return {};
   },
   methods: {},
-  mounted: function mounted() {}
+  mounted: function mounted() {
+    var app = this;
+
+    if (app.$auth.user().level != "admin") {
+      app.$router.push({
+        name: "notfound"
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -24653,6 +24661,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   methods: {},
   mounted: function mounted() {
+    var app = this;
+
+    if (app.$auth.user().level != "admin") {
+      app.$router.push({
+        name: "notfound"
+      });
+    }
+
     this.index();
     this.loadtable();
   }
@@ -24752,6 +24768,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   methods: {},
   mounted: function mounted() {
+    var app = this;
+
+    if (app.$auth.user().level != "admin") {
+      app.$router.push({
+        name: "notfound"
+      });
+    }
+
     this.index();
     this.loadtable();
   }
@@ -24870,6 +24894,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   methods: {},
   mounted: function mounted() {
+    var app = this;
+
+    if (app.$auth.user().level != "admin") {
+      app.$router.push({
+        name: "notfound"
+      });
+    }
+
     this.index();
     this.loadtable();
   }
@@ -24969,6 +25001,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   methods: {},
   mounted: function mounted() {
+    var app = this;
+
+    if (app.$auth.user().level != "admin") {
+      app.$router.push({
+        name: "notfound"
+      });
+    }
+
     this.index();
     this.loadtable();
   }
@@ -25072,6 +25112,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   methods: {},
   mounted: function mounted() {
+    var app = this;
+
+    if (app.$auth.user().level != "admin") {
+      app.$router.push({
+        name: "notfound"
+      });
+    }
+
     this.index();
     this.loadtable();
   }
@@ -25160,7 +25208,15 @@ __webpack_require__.r(__webpack_exports__);
     return {};
   },
   methods: {},
-  mounted: function mounted() {}
+  mounted: function mounted() {
+    var app = this;
+
+    if (app.$auth.user().level != "guru") {
+      app.$router.push({
+        name: "notfound"
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -25192,6 +25248,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   methods: {},
   mounted: function mounted() {
+    var app = this;
+
+    if (app.$auth.user().level != "guru") {
+      app.$router.push({
+        name: "notfound"
+      });
+    }
+
     this.index();
   }
 }, "methods", {
@@ -25301,6 +25365,13 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     var app = this;
+
+    if (app.$auth.user().level != "guru") {
+      app.$router.push({
+        name: "notfound"
+      });
+    }
+
     app.index();
   }
 });
@@ -25356,6 +25427,13 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     var app = this;
+
+    if (app.$auth.user().level != "guru") {
+      app.$router.push({
+        name: "notfound"
+      });
+    }
+
     app.index();
   }
 });
@@ -25410,6 +25488,13 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     var app = this;
+
+    if (app.$auth.user().level != "guru") {
+      app.$router.push({
+        name: "notfound"
+      });
+    }
+
     app.index();
   }
 });
@@ -25605,7 +25690,15 @@ __webpack_require__.r(__webpack_exports__);
     return {};
   },
   methods: {},
-  mounted: function mounted() {}
+  mounted: function mounted() {
+    var app = this;
+
+    if (app.$auth.user().level != "siswa") {
+      app.$router.push({
+        name: "notfound"
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -25676,6 +25769,13 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     var app = this;
+
+    if (app.$auth.user().level != "siswa") {
+      app.$router.push({
+        name: "notfound"
+      });
+    }
+
     app.index();
   }
 });
@@ -25731,6 +25831,13 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     var app = this;
+
+    if (app.$auth.user().level != "siswa") {
+      app.$router.push({
+        name: "notfound"
+      });
+    }
+
     app.index();
   }
 });
@@ -25776,7 +25883,15 @@ __webpack_require__.r(__webpack_exports__);
       });
     }
   },
-  mounted: function mounted() {}
+  mounted: function mounted() {
+    var app = this;
+
+    if (app.$auth.user().level != "siswa") {
+      app.$router.push({
+        name: "notfound"
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -29292,15 +29407,7 @@ var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_19__.createRouter)({
     meta: {
       auth: undefined
     }
-  }, // {
-  //     path: '/home',
-  //     name: 'home',
-  //     component: Home,
-  //     meta: {
-  //         auth: undefined
-  //     }
-  // },
-  {
+  }, {
     path: '/register',
     name: 'register',
     component: _pages_Register__WEBPACK_IMPORTED_MODULE_2__["default"],
@@ -29377,6 +29484,14 @@ var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_19__.createRouter)({
     path: '/kelasmapel-admin',
     name: 'admin.kelasmapel',
     component: _pages_Admin_KelasMapel_Index_vue__WEBPACK_IMPORTED_MODULE_10__["default"]
+  }, {
+    path: '/*',
+    name: 'notfound',
+    component: _pages_Redirect_Index_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  }, {
+    path: '/404',
+    name: 'notfound404',
+    component: _pages_Redirect_Index_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   }]
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (app) {

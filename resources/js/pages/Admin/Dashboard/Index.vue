@@ -60,7 +60,13 @@ export default {
     return {};
   },
   methods: {},
-  mounted() {},
+  mounted() {
+    var app = this;
+    if (app.$auth.user().level != "admin") {
+      app.$router.push({ name: "notfound" });
+    }
+
+  },
 };
 </script>
 
