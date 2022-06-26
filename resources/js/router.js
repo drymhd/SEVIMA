@@ -33,6 +33,7 @@ const router = createRouter({
             name: 'redirect',
             component: Redirect,
             meta: {
+                title: 'loading',
                 auth: undefined
             }
         },
@@ -41,7 +42,8 @@ const router = createRouter({
             name: 'register',
             component: Register,
             meta: {
-                auth: false
+                auth: false,
+                title: 'register',
             }
         },
         {
@@ -57,22 +59,34 @@ const router = createRouter({
             path: '/dashboard-siswa',
             name: 'siswa',
             component: Dashboard,
+            meta: {
+                title: 'siswa',
+            }
         },
 
         {
             path: '/daftarkelas-siswa',
             name: 'siswa.daftarkelas',
             component: DaftarKelasSiswa,
+            meta: {
+                title: 'siswa-daftar-kelas',
+            }
         },
         {
             path: '/materi-siswa/:id',
             name: 'siswa.materi',
             component: MateriKelasSiswa,
+            meta: {
+                title: 'siswa-materi',
+            }
         },
         {
             path: '/materitugas-siswa/:id',
             name: 'siswa.materitugas',
             component: MateriTugasSiswa,
+            meta: {
+                title: 'siswa-materi-tugas',
+            }
         },
 
         // Guru ROUTES
@@ -80,26 +94,41 @@ const router = createRouter({
             path: '/dashboard-guru',
             name: 'guru',
             component: DashboardGuru,
+            meta: {
+                title: 'guru',
+            }
         },
         {
             path: '/daftarkelas-guru',
             name: 'guru.daftarkelas',
             component: KelasGuru,
+            meta: {
+                title: 'guru-kelas',
+            }
         },
         {
             path: '/ruangkelas-guru',
             name: 'guru.ruangkelas',
             component: RuangGuru,
+            meta: {
+                title: 'guru-ruang-kelas',
+            }
         },
         {
             path: '/materi-guru/:id',
             name: 'guru.materi',
             component: MateriGuru,
+            meta: {
+                title: 'guru-materi',
+            }
         },
         {
             path: '/room-guru/:id',
             name: 'guru.room',
             component: RoomGuru,
+            meta: {
+                title: 'guru-ruang',
+            }
         },
 
         //Admin ROUTES
@@ -108,45 +137,76 @@ const router = createRouter({
             path: '/dashboard-admin',
             name: 'admin',
             component: DashboardAdmin,
+            meta: {
+                title: 'admin',
+            }
         },
         {
             path: '/kelas-admin',
             name: 'admin.kelas',
             component: KelasAdmin,
+            meta: {
+                title: 'admin-kelas',
+            }
         },
         {
             path: '/mapel-admin',
             name: 'admin.mapel',
             component: MapelAdmin,
+            meta: {
+                title: 'admin-mapel',
+            }
         },
         {
             path: '/siswa-admin',
             name: 'admin.siswa',
             component: SiswaAdmin,
+            meta: {
+                title: 'admin-siswa',
+            }
         },
         {
             path: '/guru-admin',
             name: 'admin.guru',
             component: GuruAdmin,
+            meta: {
+                title: 'admin-guru',
+            }
         },
         {
             path: '/kelasmapel-admin',
             name: 'admin.kelasmapel',
             component: KelasMapelAdmin,
+            meta: {
+                title: 'admin-kelas-mapel',
+            }
         },
         {
             path: '/*',
             name: 'notfound',
             component: Redirect,
+            meta: {
+                title: 'loading',
+            }
         },
         {
             path: '/404',
             name: 'notfound404',
             component: Redirect,
+            meta: {
+                title: 'loading',
+            }
         },
 
     ]
-})
+});
+
+router.beforeEach((to, from, next) => {
+    var title = document.querySelector("meta[name='title']").getAttribute("content");
+    document.title = to.meta.title;
+    next()
+});
+
 
 export default (app) => {
     app.router = router;

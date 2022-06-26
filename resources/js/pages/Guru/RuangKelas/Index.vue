@@ -99,7 +99,11 @@ export default {
     tambah(){
         var app = this;
         app.$http.post('guru/room/tambah', {data: app.form}).then((res) => {
-            console.log(res)
+            app.index();
+            app.show = false;
+            app.form = {};
+        }).catch((err) => {
+          toastr.error('sesuatu error terjadi', 'error');
         });
     }
   },

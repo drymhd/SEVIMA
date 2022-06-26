@@ -25482,7 +25482,11 @@ __webpack_require__.r(__webpack_exports__);
       app.$http.post('guru/room/tambah', {
         data: app.form
       }).then(function (res) {
-        console.log(res);
+        app.index();
+        app.show = false;
+        app.form = {};
+      })["catch"](function (err) {
+        toastr.error('sesuatu error terjadi', 'error');
       });
     }
   },
@@ -29405,6 +29409,7 @@ var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_19__.createRouter)({
     name: 'redirect',
     component: _pages_Redirect_Index_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     meta: {
+      title: 'loading',
       auth: undefined
     }
   }, {
@@ -29412,7 +29417,8 @@ var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_19__.createRouter)({
     name: 'register',
     component: _pages_Register__WEBPACK_IMPORTED_MODULE_2__["default"],
     meta: {
-      auth: false
+      auth: false,
+      title: 'register'
     }
   }, {
     path: '/login',
@@ -29425,74 +29431,130 @@ var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_19__.createRouter)({
   {
     path: '/dashboard-siswa',
     name: 'siswa',
-    component: _pages_Siswa_Dashboard_Index_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
+    component: _pages_Siswa_Dashboard_Index_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
+    meta: {
+      title: 'siswa'
+    }
   }, {
     path: '/daftarkelas-siswa',
     name: 'siswa.daftarkelas',
-    component: _pages_Siswa_daftarkelas_Index_vue__WEBPACK_IMPORTED_MODULE_16__["default"]
+    component: _pages_Siswa_daftarkelas_Index_vue__WEBPACK_IMPORTED_MODULE_16__["default"],
+    meta: {
+      title: 'siswa-daftar-kelas'
+    }
   }, {
     path: '/materi-siswa/:id',
     name: 'siswa.materi',
-    component: _pages_Siswa_Materi_Index_vue__WEBPACK_IMPORTED_MODULE_17__["default"]
+    component: _pages_Siswa_Materi_Index_vue__WEBPACK_IMPORTED_MODULE_17__["default"],
+    meta: {
+      title: 'siswa-materi'
+    }
   }, {
     path: '/materitugas-siswa/:id',
     name: 'siswa.materitugas',
-    component: _pages_Siswa_MateriTugas_Index_vue__WEBPACK_IMPORTED_MODULE_18__["default"]
+    component: _pages_Siswa_MateriTugas_Index_vue__WEBPACK_IMPORTED_MODULE_18__["default"],
+    meta: {
+      title: 'siswa-materi-tugas'
+    }
   }, // Guru ROUTES
   {
     path: '/dashboard-guru',
     name: 'guru',
-    component: _pages_Guru_Dashboard_Index_vue__WEBPACK_IMPORTED_MODULE_11__["default"]
+    component: _pages_Guru_Dashboard_Index_vue__WEBPACK_IMPORTED_MODULE_11__["default"],
+    meta: {
+      title: 'guru'
+    }
   }, {
     path: '/daftarkelas-guru',
     name: 'guru.daftarkelas',
-    component: _pages_Guru_Kelas_Index_vue__WEBPACK_IMPORTED_MODULE_12__["default"]
+    component: _pages_Guru_Kelas_Index_vue__WEBPACK_IMPORTED_MODULE_12__["default"],
+    meta: {
+      title: 'guru-kelas'
+    }
   }, {
     path: '/ruangkelas-guru',
     name: 'guru.ruangkelas',
-    component: _pages_Guru_RuangKelas_Index_vue__WEBPACK_IMPORTED_MODULE_13__["default"]
+    component: _pages_Guru_RuangKelas_Index_vue__WEBPACK_IMPORTED_MODULE_13__["default"],
+    meta: {
+      title: 'guru-ruang-kelas'
+    }
   }, {
     path: '/materi-guru/:id',
     name: 'guru.materi',
-    component: _pages_Guru_Materi_Index_vue__WEBPACK_IMPORTED_MODULE_15__["default"]
+    component: _pages_Guru_Materi_Index_vue__WEBPACK_IMPORTED_MODULE_15__["default"],
+    meta: {
+      title: 'guru-materi'
+    }
   }, {
     path: '/room-guru/:id',
     name: 'guru.room',
-    component: _pages_Guru_Room_Index_vue__WEBPACK_IMPORTED_MODULE_14__["default"]
+    component: _pages_Guru_Room_Index_vue__WEBPACK_IMPORTED_MODULE_14__["default"],
+    meta: {
+      title: 'guru-ruang'
+    }
   }, //Admin ROUTES
   {
     path: '/dashboard-admin',
     name: 'admin',
-    component: _pages_Admin_Dashboard_Index_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
+    component: _pages_Admin_Dashboard_Index_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
+    meta: {
+      title: 'admin'
+    }
   }, {
     path: '/kelas-admin',
     name: 'admin.kelas',
-    component: _pages_Admin_Kelas_Index_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
+    component: _pages_Admin_Kelas_Index_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
+    meta: {
+      title: 'admin-kelas'
+    }
   }, {
     path: '/mapel-admin',
     name: 'admin.mapel',
-    component: _pages_Admin_Mapel_Index_vue__WEBPACK_IMPORTED_MODULE_7__["default"]
+    component: _pages_Admin_Mapel_Index_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
+    meta: {
+      title: 'admin-mapel'
+    }
   }, {
     path: '/siswa-admin',
     name: 'admin.siswa',
-    component: _pages_Admin_Siswa_Index_vue__WEBPACK_IMPORTED_MODULE_8__["default"]
+    component: _pages_Admin_Siswa_Index_vue__WEBPACK_IMPORTED_MODULE_8__["default"],
+    meta: {
+      title: 'admin-siswa'
+    }
   }, {
     path: '/guru-admin',
     name: 'admin.guru',
-    component: _pages_Admin_Guru_Index_vue__WEBPACK_IMPORTED_MODULE_9__["default"]
+    component: _pages_Admin_Guru_Index_vue__WEBPACK_IMPORTED_MODULE_9__["default"],
+    meta: {
+      title: 'admin-guru'
+    }
   }, {
     path: '/kelasmapel-admin',
     name: 'admin.kelasmapel',
-    component: _pages_Admin_KelasMapel_Index_vue__WEBPACK_IMPORTED_MODULE_10__["default"]
+    component: _pages_Admin_KelasMapel_Index_vue__WEBPACK_IMPORTED_MODULE_10__["default"],
+    meta: {
+      title: 'admin-kelas-mapel'
+    }
   }, {
     path: '/*',
     name: 'notfound',
-    component: _pages_Redirect_Index_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    component: _pages_Redirect_Index_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    meta: {
+      title: 'loading'
+    }
   }, {
     path: '/404',
     name: 'notfound404',
-    component: _pages_Redirect_Index_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    component: _pages_Redirect_Index_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    meta: {
+      title: 'loading'
+    }
   }]
+});
+router.beforeEach(function (to, from, next) {
+  var title = document.querySelector("meta[name='title']").getAttribute("content");
+  document.title = to.meta.title;
+  next();
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (app) {
   app.router = router;
